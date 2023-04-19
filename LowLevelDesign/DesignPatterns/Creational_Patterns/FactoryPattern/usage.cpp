@@ -3,6 +3,7 @@
 #include "refactored_code.h"
 using namespace std;
 
+//we have used test clicks function thrice to check if the toggle button is working properly
 
 void clickHandler(string btn_type)
 {
@@ -33,7 +34,7 @@ void nastyCodeImpl(){
         rect_button = new nasty :: LinuxRectangleButton(75, 75, clickHandler);
         tog_button = new nasty :: LinuxToggleButton(65, 65, toggle_values, clickHandler);
     }
-    // whenever we add a new type, more cases must be handled here
+    // whenever we add a new type of os, more cases must be handled here
     // propogation of changes
 
     mainUserInterface->addButton(rnd_button);
@@ -62,7 +63,7 @@ void refactoredCodeImpl(){
     refactored :: Button *rect_button = btnFactory->createRectangleButton(75, 75, clickHandler);
     refactored :: Button *tog_button = btnFactory->createToggleButton(65, 65, toggle_values, clickHandler);
     
-    // whenever we add a new type the handling of cases will be done
+    // whenever we add a new type of os the handling of cases will be done
     // by the object factory
     // No propogation of changes in this part of the code
     
