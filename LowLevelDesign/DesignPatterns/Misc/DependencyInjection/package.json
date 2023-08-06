@@ -1,0 +1,13 @@
+{
+  "name": "dependencyinjection",
+  "version": "1.0.0",
+  "description": "Practicing Dependncy Injection",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc index.ts --outdir \"./TranspiledJs\"",
+    "start": "node ./TranspiledJs/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kathik Shenoy",
+  "license": "ISC"
+}
