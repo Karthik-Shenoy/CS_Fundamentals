@@ -5,7 +5,6 @@ using namespace std;
 int sharedData = 0;
 
 
-
 /*
     Unsafe functions as critical section wont be mutually exclusive to the threads in case of 
     pre-emption by the processor
