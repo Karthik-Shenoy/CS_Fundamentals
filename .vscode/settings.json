@@ -1,0 +1,10 @@
+{
+    "C_Cpp.default.compilerPath": "c:\\KarthikWorkSpace\\MinGW\\bin\\g++.exe",
+    "files.associations": {
+        "*.tcc": "cpp",
+        "algorithm": "cpp",
+        "random": "cpp",
+        "iostream": "cpp",
+        "new": "cpp"
+    }
+}
