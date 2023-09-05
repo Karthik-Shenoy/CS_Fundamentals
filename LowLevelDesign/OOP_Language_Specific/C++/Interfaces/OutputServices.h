@@ -21,9 +21,12 @@ class FileWriter : public IUserOutput
 public:
     FileWriter(string path)
     {
-        if(GlobalState::getInstance()->isFileOpen()){
+        if(!GlobalState::getInstance()->isFileOpen()){
             cout << "opening the file : " << path << "\n";
             GlobalState::getInstance()->openFile();
+        }
+        else{
+            cout << "using the already opened file \n";
         }
     }
     void write()

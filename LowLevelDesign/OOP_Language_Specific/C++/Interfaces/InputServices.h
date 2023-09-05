@@ -33,7 +33,7 @@ class FileReader : public IUserInput
 public:
     FileReader(string path)
     {
-        if(GlobalState::getInstance()->isFileOpen()){
+        if(!GlobalState::getInstance()->isFileOpen()){
             cout << "opening the file : " << path << "\n";
             GlobalState::getInstance()->openFile();
         }
