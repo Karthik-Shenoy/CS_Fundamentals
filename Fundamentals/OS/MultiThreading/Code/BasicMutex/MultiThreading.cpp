@@ -125,4 +125,5 @@ int main()
     cout << "------------------------\n";
 
     threadSafeParallelExecution();
+    return 0;
 }
