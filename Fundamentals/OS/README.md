@@ -13,7 +13,7 @@ Operating system is a software package (device drivers, utils, system libraries 
     <div style="width: 10px;"></div> 
     <div style="flex: 50%; text-align: center;">
         <h3>Linux</h3>
-        <img src="./images/KernelHierarchyLinux.jpg" alt="Linux">
+        <img src="Fundamentals/OS/Images/KernelHierarchyLinux.jpg" alt="Linux">
     </div>
 </div>
 
