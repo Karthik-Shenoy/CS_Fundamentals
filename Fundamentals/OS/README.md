@@ -21,11 +21,17 @@ Operating system is a software package (device drivers, utils, system libraries 
 - Process is basically a Program (set of instrucions, stored in files => dll, exe, etc) which is in execution (loaded into the memory)
 - when this program gets loaded on to the memory it becomes a process
 - The process has 4 main sections (stack, heap, text and data)
-- - `Stack`: The process Stack contains temporary (basically the data with a short socope/lifetime) data such as function params and return address of the variables. when the data, stored in the stack goes out of scope, this memory automatically gets freed. (Stack space is fixed and is allocated during runtime)
-- - `Heap`: Dyanamically allocated memory (`Managed Memory`) to the process during run time (Variables created in heap have `user managed life time`)
-- - Look into [Memory_Management] to get more insights into how `stack and heap` memory is managed
-- - `Text`: Program Counters (pointer to the `current executing instruction`) and the contents of Processor's registers, (The registers are used to run the CPU level instructions in `assembly language`)
-- - `Data`: Comnt
+    - `Stack`: The process Stack contains temporary (basically the data with a short socope/lifetime) data such as function params and return address of the variables. when the data, stored in the stack goes out of scope, this memory automatically gets freed. (Stack space is fixed and is allocated during runtime)
+    - `Heap`: Dyanamically allocated memory (`Managed Memory`) to the process during run time (Variables created in heap have `user managed life time`)
+    - Look into [Memory_Management] to get more insights into how `stack and heap` memory is managed
+    - `Text`: Program Counters (pointer to the `current executing instruction`) and the contents of Processor's registers, (The registers are used to run the CPU level instructions in `assembly language`)
+    - `Data`: Comnt
+
+### Process and Thread Registers vs CPU registers
+- The register in the process is data structure that stores the state (snapshot) of the CPU when the process is not running. 
+- The CPU registers are small storage units inside the CPU that hold data, instructions, and the current status of the processor. 
+- The registers in the process are used to save and restore the context of the process when it is switched in and out of the CPU. 
+- The CPU registers are used to perform operations and access memory quickly and efficiently
 
 
 ## Threads and Concurrency
