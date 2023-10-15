@@ -1,4 +1,4 @@
-# Behavioural Pattern
+# Behavioural Patterns
 
 ## iterator pattern
 - `Collection` : is a container for group of objects (Lists, Queues, Graphs, Trees, Matrices etc)
@@ -53,3 +53,9 @@
 
 - When implementing the state pattern in c++, only the initial state will have default constructor, (and a setter)
 - `Future work :` We can model the payment timeout on a seperate thread, and cancel the processing if some one tries to enter in between processing
+
+## Command Pattern
+- encapsulate all the data about the request between sender and reciever, into a `standalone object`
+- this allows to pass the requests as ?method arguments?, delay and queue them, this also makes it easy to support `undoable opeerations`
+- main idea is seperation of concerns, The `UI layer` must solely be responsible for rendering GUI, and all the logic/calculations should be handled at the `logic layer`
+

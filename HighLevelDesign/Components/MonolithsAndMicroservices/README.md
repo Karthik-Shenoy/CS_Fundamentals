@@ -1,4 +1,4 @@
-# Microservice
+# Monoliths vs Microservice
 
 A microservice is a backend service that performs a specific function and communicates with other services. By dividing the functionalities of a web app into microservices, we can achieve better scalability, flexibility, and maintainability.
 

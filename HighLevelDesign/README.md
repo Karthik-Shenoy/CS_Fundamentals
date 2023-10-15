@@ -1,9 +1,6 @@
 # High Level Design
-A large scale distributed system is a highly complex and interconnected system that is designed to handle data and compute-intensive processes, and can scale horizontally by adding more nodes to accommodate increasing demand or workload, 
-
-Primary goal of such a system is to provide **high performance** (low latency), **fault tolerance** (manage failures), **consistency** (as data is distributed across nodes) and **reliability** (reduce down time), **Extensibility** (how easy is it to modify the system, reduce coupling), **Testing** (very important in real world scenario).
-
-**Design Pattern :** Reusable solution to commonly occurring problem
+- A large scale distributed system is a `highly complex and interconnected system` that is designed to handle data and compute-intensive processes, and can scale horizontally by adding more nodes to accommodate increasing demand or workload.
+- Primary goal of such a system is to provide `high performance` (low latency), `fault tolerance` (manage failures), `consistency` (as data is distributed across nodes) and `reliability` (reduce down time), `Extensibility` (how easy is it to modify the system, reduce coupling), **Testing** (very important in real world scenario).
 
 <div style="text-align:center">
   <img src="./DesignFlow.png" alt="Example image" style="width:300px;height:500px;">
@@ -33,6 +30,15 @@ Two ways to approach a system design problem problem, think of all the data and 
 
 - once the high level blue proint is done we can think about what are the actual tools we can use to make this system possible, we will be using System Design Patterns (Load Balancers, caches, etc) which are provided by cloud providers like tools, 
 - its better to use already existing tools instead of building one from scratch as they are already heavyly tested.
+- **Design Pattern :** Reusable solution to commonly occurring problem
+
+## Basic system
+- we will have some `business logic` (piece of code) that will be running at our `remote server`, we will allow users to use this piece of code.
+- the code can be exposed over some protocol (HTTP, Websockets, WebRTC, gRPC etc.) using a api(application programming interface)
+- to persist the `User Data`, we can use some DB (SQL/NO-SQL)
+- to setup all this we can use a cloud service to manage everything at a single place (Maintainance and Reliability is taken care by the CSP)
+- the System keeps changing as the requirements keep changing (user needs/scale)
+
 
 ## Low-Level Design
 - We break down the, high level design into smaller chunks representing different functionalities, and code these chunks seperately and finally link them together to form the entire system 

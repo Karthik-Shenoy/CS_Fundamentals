@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var grpc = require("@grpc/grpc-js");
+var protoLoader = require("@grpc/proto-loader");
+var packageDef = protoLoader.loadSync("./todo.proto", {});
+var grpcObjectHierarchy = grpc.loadPackageDefinition(packageDef);
+var todoPackage = grpcObjectHierarchy.todoPackage;
+console.log(todoPackage);
+var server = new grpc.Server();
+server.bind("0.0.0.0:5000", grpc.ServerCredentials.createInsecure());
+// server.addService(todoPackage.Todo.service);

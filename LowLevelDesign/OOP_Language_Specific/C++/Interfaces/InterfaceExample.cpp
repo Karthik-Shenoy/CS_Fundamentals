@@ -8,6 +8,7 @@ using namespace std;
 int main()
 {
     ServiceFactory *customSerrviceFactory = new ServiceFactory();
+    // Input Types (keyboard and file)
     InputServiceType inputType = IST_Keyboard;
     OutputServiceType outputType = OST_Monitor;
     // dependency injection into the user class
