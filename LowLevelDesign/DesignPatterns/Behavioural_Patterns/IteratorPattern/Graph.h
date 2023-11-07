@@ -45,13 +45,14 @@ public:
     // consumes extra space
     vector<Node<T>*> getNodeList(){
         vector<Node<T>*> nodeList;
-        // typenamee is used to specify that the iterator is a type to avoid compiler getting confused
+        // typename is used to specify that the iterator is a type to avoid compiler getting confused
         for(typename map<T, Node<T>*>::iterator it = nodes.begin(); it != nodes.end(); it++)
         {
             nodeList.push_back(it->second);
         }
         return nodeList;
     }
+
     map<T, Node<T>*>* getNodeMap(){
         return &nodes;
     }
