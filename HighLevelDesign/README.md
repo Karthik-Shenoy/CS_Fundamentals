@@ -2,10 +2,10 @@
 - A large scale distributed system is a `highly complex and interconnected system` that is designed to handle data and compute-intensive processes, and can scale horizontally by adding more nodes to accommodate increasing demand or workload.
 - Primary goal of such a system is to provide `high performance` (low latency), `fault tolerance` (manage failures), `consistency` (as data is distributed across nodes) and `reliability` (reduce down time), `Extensibility` (how easy is it to modify the system, reduce coupling), **Testing** (very important in real world scenario).
 
-<div style="text-align:center">
+<p align="center">
   <img src="./Images/DesignFlow.png" alt="Example image" style="width:300px;height:500px;">
   <p style="font-style:italic;font-size:14px;">Flow for high-level design process</p>
-</div>
+</p>
 
 1. Define product requirements based on user feedback, and document them in a product requirement document.
 2. Come up with abstract features/components based on the design document.
