@@ -1,3 +1,4 @@
+#pragma once
 class IIterator {
 public:
     virtual IIterator* moveNext() = 0;

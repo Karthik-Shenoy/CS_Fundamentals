@@ -5,8 +5,11 @@ using namespace std;
 int sharedData = 0;
 
 /*
-    Unsafe functions as critical section wont be mutually exclusive to the threads in case of
-    pre-emption by the Scheduling Alogrithm
+    the following function is Unsafe as critical section wont be mutually exclusive to the threads 
+    in case of preemption by the Scheduling Algorithm
+    
+    operation execution times
+    ---------------------------
     1s == 1e8 ops
     (1/10)s = 1e7 ops
 */
@@ -46,8 +49,8 @@ void Unsafe_WorkerOperation(int life_time)
 }
 
 /*
-    Safe functions as critical section will be mutually exclusive to the threads in case of
-    pre-emption by the processor
+    the following function is Safe  as critical section will be mutually exclusive to the thread 
+    in case of preemption by the processor, because of th mutex lock
 */
 mutex m;
 void Safe_updateSharedData(int x)

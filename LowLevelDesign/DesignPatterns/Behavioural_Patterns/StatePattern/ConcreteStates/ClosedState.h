@@ -24,14 +24,15 @@ public:
         cout << "ClosedState : Gate is closed, can not enter" << endl;
         return;
     }
+    void processPayment()
+    {
+        // we can process payment only in processing state
+        return;
+    }
     // setContext
     void setMetroGate(MetroGate *pMetroGate) 
     {
         this->m_pMetroGate = pMetroGate;
-    }
-    void getType()
-    {
-        cout << "Closed State" << endl;
     }
 };
 

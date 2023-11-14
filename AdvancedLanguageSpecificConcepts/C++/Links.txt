@@ -1,0 +1,7 @@
+https://www.incredibuild.com/blog/cpp-advanced-topics-for-experienced-cpp-devs
+
+1. Functors
+2. Lambda Functions
+3. Capture
+4. Async
+5. Future

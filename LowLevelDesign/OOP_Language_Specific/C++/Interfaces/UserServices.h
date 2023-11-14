@@ -32,4 +32,8 @@ public:
     {
         writerService->write();
     }
+    ~User()
+    {
+        delete this->serviceFactory;
+    }
 };

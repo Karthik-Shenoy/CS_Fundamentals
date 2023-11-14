@@ -3,6 +3,7 @@
 #include "../Context.h"
 #include "./ClosedState.h"
 #include "./OpenState.h"
+#include <thread>
 #include<iostream>
 using namespace std;
 
@@ -32,10 +33,11 @@ public:
         cout << "ProcessingState : Gate Will Remain Closed Until the Payment is Processed" << endl;
         return;
     }
+    // we can process payment only in processing state
     void processPayment();
-    void getType()
+    void updatePaymentState(bool isPaymentSucessful)
     {
-        cout << "Processing State" << endl;
+        this->m_pMetroGate->isPaymentComplete = true;
     }
 };
 

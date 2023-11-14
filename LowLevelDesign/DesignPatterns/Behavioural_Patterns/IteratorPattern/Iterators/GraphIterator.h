@@ -1,77 +1,91 @@
 #pragma once
 #include "../Graph.h"
 #include "./IIterator.h"
-#include<iostream>
-#include<string>
-#include<stack>
+#include <iostream>
+#include <string>
+#include <stack>
 using namespace std;
 
 template <class T>
-class GraphIterator: public IIterator {
+class GraphIterator : public IIterator
+{
 private:
     // Concrete collection
     Graph<T> *graph;
 
     // datastructures required for iteration
     map<T, bool> visited;
-    vector<Node<T>*> nodeList;
-    stack<Node<T>*> nodeStack;
+    vector<Node<T> *> nodeList;
+    stack<Node<T> *> nodeStack;
 
     // iterators pointer to curr node in the collection
     Node<T> *currNode = NULL;
     int index = 0;
 
 public:
-    GraphIterator(Graph<T> *graph){
+    GraphIterator(Graph<T> *graph)
+    {
         this->graph = graph;
         nodeList = graph->getNodeList();
         cout << "nodeList : \n";
-        for(Node<T>* x: nodeList)
+        for (Node<T> *x : nodeList)
             cout << x->data << ' ';
-    }   
-    IIterator* moveNext(){
-        if(!currNode){
-
-            if(!nodeList.size())
+    }
+    IIterator *moveNext()
+    {
+        if (!currNode)
+        {
+            if (!nodeList.size())
                 return NULL;
+
             currNode = nodeList[index++];
-            while(visited[currNode->data]){
+            while (visited[currNode->data])
+            {
                 currNode = nodeList[index++];
             }
+
             visited[currNode->data] = true;
             return this;
-
-        } else {
-            for(auto neighbor: currNode->getNeighbors()){
-                if(!visited[neighbor->data]){
+        }
+        else
+        {
+            for (auto neighbor : currNode->getNeighbors())
+            {
+                if (!visited[neighbor->data])
+                {
                     visited[neighbor->data] = true;
                     nodeStack.push(neighbor);
                 }
             }
-            if(nodeStack.size())
+            if (nodeStack.size())
             {
-                currNode = nodeStack.top(); 
+                currNode = nodeStack.top();
                 nodeStack.pop();
-            } 
+            }
             else
             {
+                if (index == nodeList.size())
+                    return NULL;
                 currNode = nodeList[index++];
-                while(visited[currNode->data] && index < nodeList.size() ){
+                while (visited[currNode->data] && index < nodeList.size())
+                {
                     currNode = nodeList[index++];
                 }
-                visited[currNode->data] = true;
-                if(index == nodeList.size())
+                
+                // all nodes have been visited
+                if (index == nodeList.size())
                     return NULL;
+                visited[currNode->data] = true;
             }
             return this;
         }
-        
-        
     };
-    bool hasMore(){
+    bool hasMore()
+    {
         return index != nodeList.size();
     };
-    void display(){
+    void display()
+    {
         cout << currNode->data << "\n";
     }
 };

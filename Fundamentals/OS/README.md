@@ -25,7 +25,7 @@ Operating system is a software package (device drivers, utils, system libraries 
     - `Heap`: Dyanamically allocated memory (`Managed Memory`) to the process during run time (Variables created in heap have `user managed life time`)
     - Look into [Memory_Management] to get more insights into how `stack and heap` memory is managed
     - `Text`: Program Counters (pointer to the `current executing instruction`) and the contents of Processor's registers, (The registers are used to run the CPU level instructions in `assembly language`)
-    - `Data`: Comnt
+    - `Data`: 
 
 ### Process and Thread Registers vs CPU registers
 - The register in the process is data structure that stores the state (snapshot) of the CPU when the process is not running. 
@@ -39,8 +39,14 @@ Operating system is a software package (device drivers, utils, system libraries 
 ## Scheduling
 
 ## Memory Management
+- Manage primary memory (RAM), and move processes back and forth between disk and main memory `during execution`
+    - keep track of every memory location regarless of it being allocated to a process or free
+    - how much memory is to be allocated at what time to a certain process
+    - tracks allocation and deallocation of the memory
+- each process gets its own `process address space`, that is a set of logical addresses that a process references in its code (example a 32 bit logical address can range from 0 to 0X7FFFFFFF -> first bit is zero rest all ones)
+- OS maps the logical addresses to the physical address during the time of memory allocation to the process
 
-## Interprocess Communication
+## Inter process Communication
 
 ## I/O management
 

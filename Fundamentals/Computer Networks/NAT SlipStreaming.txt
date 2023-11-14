@@ -1,0 +1,1 @@
+Fixed the issue with Double border background fill, and made it consistent with the desktop behaviour, the previous logic to ge the neigboring cell data was inconsistent, added 

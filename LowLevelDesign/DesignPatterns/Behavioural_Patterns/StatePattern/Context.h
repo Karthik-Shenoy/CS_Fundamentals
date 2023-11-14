@@ -17,12 +17,9 @@ public:
     }
     void changeState(IState *pState)
     {
-        cout << "\n changed state : "; this->m_pState->getType();
-        delete this->m_pState;
+        //IState *pPreviousState = this->m_pState;
         this->m_pState = pState;
-        cout << " to ";
-        this->m_pState->getType();
-        cout << "\n";
+        //delete pPreviousState;
     }
     void makePayment(int& balance)
     {
@@ -33,8 +30,6 @@ public:
             balance -= 40;
             this->isPaymentComplete = false;
         }
-        cout << "MetroGate.MakePayment : ";
-        this->m_pState->getType();
         this->cardBalance = 0;
     }
     void enterGate()

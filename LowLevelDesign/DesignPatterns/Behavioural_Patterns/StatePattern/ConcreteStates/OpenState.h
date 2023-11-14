@@ -17,13 +17,14 @@ public:
     }
     void makePayment()
     {
-        cout << "Payment Not Allowed Gate already in Open State" << endl;
+        cout << "Open State: Payment Not Allowed Gate already in Open State" << endl;
         return;
     }
     void enterGate() override;
-    void getType()
+    void processPayment()
     {
-        cout << "Open State" << endl;
+        // we can process payment only in processing state
+        return;
     }
 };
 
