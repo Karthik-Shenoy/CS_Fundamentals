@@ -23,10 +23,10 @@ Two ways to approach a system design problem problem, think of all the data and 
 1. From customers to servers, and finally to database (bottom up) ***UserRequirements -> Define Apis -> Modelling the data which will be served by defined Apis***
 2. From Database to server to customers (top down)
 ***modelling Data required to satisfy customer needs -> designing apis for the data -> Meeting user requirements***
-<div style="text-align:center">
+<p align="center">
   <img src="./Images/SystemDesignApproach.png" alt="Example image" style="width:200px;height:300px;">
   <p style="font-style:italic;font-size:14px;">System Design Approaches</p>
-</div>
+</p>
 
 - once the high level blue proint is done we can think about what are the actual tools we can use to make this system possible, we will be using System Design Patterns (Load Balancers, caches, etc) which are provided by cloud providers like tools, 
 - its better to use already existing tools instead of building one from scratch as they are already heavyly tested.
