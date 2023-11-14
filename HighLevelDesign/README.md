@@ -24,7 +24,7 @@ Two ways to approach a system design problem problem, think of all the data and 
 2. From Database to server to customers (top down)
 ***modelling Data required to satisfy customer needs -> designing apis for the data -> Meeting user requirements***
 <p align="center">
-  <img src="./Images/SystemDesignApproach.png" alt="Example image" style="width:200px;height:300px;">
+  <img src="./Images/SystemDesignApproach.png" alt="Example image" style="width:300px;height:400px;">
   <p style="font-style:italic;font-size:14px;">System Design Approaches</p>
 </p>
 
