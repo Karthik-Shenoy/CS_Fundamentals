@@ -3,7 +3,7 @@
 - Primary goal of such a system is to provide `high performance` (low latency), `fault tolerance` (manage failures), `consistency` (as data is distributed across nodes) and `reliability` (reduce down time), `Extensibility` (how easy is it to modify the system, reduce coupling), **Testing** (very important in real world scenario).
 
 <div style="text-align:center">
-  <img src="./DesignFlow.png" alt="Example image" style="width:300px;height:500px;">
+  <img src="./Images/DesignFlow.png" alt="Example image" style="width:300px;height:500px;">
   <p style="font-style:italic;font-size:14px;">Flow for high-level design process</p>
 </div>
 
@@ -24,7 +24,7 @@ Two ways to approach a system design problem problem, think of all the data and 
 2. From Database to server to customers (top down)
 ***modelling Data required to satisfy customer needs -> designing apis for the data -> Meeting user requirements***
 <div style="text-align:center">
-  <img src="./SystemDesignApproach.png" alt="Example image" style="width:200px;height:300px;">
+  <img src="./Images/SystemDesignApproach.png" alt="Example image" style="width:200px;height:300px;">
   <p style="font-style:italic;font-size:14px;">System Design Approaches</p>
 </div>
 
