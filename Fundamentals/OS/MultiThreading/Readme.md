@@ -100,7 +100,7 @@ for(int i = 0; i < threadCount; i++)
     - The condition variable blocks the threads (makes the thread sleep), until one thread (that is operating in the critical section) modifies the shared variable (condition) and notifies the condition variable
     - once the condition variable is notified, one of the threads is notified and is woken up and it starts operating on the critical section (acquires lock)
     - to use condition variable we need 3 things `Lock`, `Condition Variable` and a `boolean` to check if the thread has completed execution
-- A thread in sleep state never gets CPU time, thus time is not wasted in unnecessary polling
+- A thread in sleep state never gets CPU time, thus time is not wasted in unnecessary polling (A thread goes to sleep only when it tries and accesses the critical section)
 
 <p align="center">
     <img src="./Images/ConditionVariable.jpeg" alt="PreemptRace" height="500px">
