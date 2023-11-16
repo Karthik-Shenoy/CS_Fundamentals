@@ -52,10 +52,9 @@ for(int i = 0; i < threadCount; i++)
     threads[i].join(); 
 }
 ```
-<p align="center" float="left">
+<p float="left">
     <img src="./Images/MultipleThreadsSync.jpeg" alt="SyncExec" height="500px">
-    <div style="width: 10px;"></div> 
-    <img src="./Images/MultipleThreadsParallel.jpeg" alt="ParallelExec" height="500px">
+    <img src="./Images/MultipleThreadsParallel.jpeg" alt="ParallelExec" height="400px">
 </p>
 
 ---
