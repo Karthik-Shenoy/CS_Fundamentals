@@ -52,15 +52,11 @@ for(int i = 0; i < threadCount; i++)
     threads[i].join(); 
 }
 ```
-<div style="display: flex; justify-content: center;">
-    <div style="flex: 50%; text-align: center;">
-        <img src="./Images/MultipleThreadsSync.jpeg" alt="SyncExec" height="500px">
-    </div>
+<p align="center" float="left">
+    <img src="./Images/MultipleThreadsSync.jpeg" alt="SyncExec" height="500px">
     <div style="width: 10px;"></div> 
-    <div style="flex: 50%; text-align: center;">
-        <img src="./Images/MultipleThreadsParallel.jpeg" alt="ParallelExec" height="500px">
-    </div>
-</div>
+    <img src="./Images/MultipleThreadsParallel.jpeg" alt="ParallelExec" height="500px">
+</p>
 
 ---
 # Pitfalls when using concurrency
