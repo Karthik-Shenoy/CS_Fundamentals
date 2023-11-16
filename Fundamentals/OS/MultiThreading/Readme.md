@@ -69,7 +69,7 @@ for(int i = 0; i < threadCount; i++)
     - A thread `reads the shared data onto the registers` and is preempted mid way when the data is being updated in the registers, thread readd Shared Data = X onto the register and updates it to Y in the register, the thread gets preempted before storing the data back to the memory.
     - Followed by another thread reading the shared data (X) onto the register and gets preempted midway when it updates the data in the registers(Z). the thread gets preempted before writing the data onto the memory.
     - Now which ever thread flushes its data in the register to the memory last will be responsible for the final state of the shared data
-<p align="middle">
+<p align="center">
     <img src="./Images/PreemptionAndRaceCondition.jpg" alt="PreemptRace" height="500px">
 </p>
 
@@ -77,7 +77,7 @@ for(int i = 0; i < threadCount; i++)
     - Mutex locks prevent other threads from accessing the shared resource when a given thread is modifying the shared resource (`The lock data is shared across the threads`), The other threads wait until the lock is released
     - When a thread acquires a lock on shared resource and gets preempted, the other threads wont be able to access the resource as the resource is locked, they just wait indefinitely until the lock is released
 
-<p align="middle">
+<p align="center">
     <img src="./Images//MutexLock.jpg" alt="PreemptRace" height="500px">
 </p>
 
@@ -92,7 +92,7 @@ for(int i = 0; i < threadCount; i++)
 - The polling wastes a lost of computation, by continuously checking if the lock has been released or not
 - The threads get interleaved, one thread performs operation on shared resource and the other threads keeps polling indefinitely (which wastes a lot of compute)
 
-<p align="middle">
+<p align="center">
     <img src="./Images/MutexOverhead.jpeg" alt="PreemptRace" height="500px">
 </p>
 
@@ -102,7 +102,7 @@ for(int i = 0; i < threadCount; i++)
     - to use condition variable we need 3 things `Lock`, `Condition Variable` and a `boolean` to check if the thread has completed execution
 - A thread in sleep state never gets CPU time, thus time is not wasted in unnecessary polling
 
-<p align="middle">
+<p align="center">
     <img src="./Images/ConditionVariable.jpeg" alt="PreemptRace" height="500px">
 </p>
 
@@ -173,7 +173,7 @@ void threadSafeOperation(int x)
     - kill one of the threads and break circular dependency (priority => old/new/least busy/most busy)
     - restart process (inconsistencies)
 
-<p align="middle">
+<p align="center">
     <img src="./Images/DeadLockAvoidance1.jpeg" alt="PreemptRace" height="500px">
 </p>
 
@@ -188,7 +188,7 @@ void threadSafeOperation(int x)
 - Core Idea: make all the threads acquire locks on the resources in some `total order` (ra, rb, rc ...) where a > b > c, without acquiring locks on resource `r[i]` the thread can not acquire lock on the resource `r[i+1]`
 - but total order in acquiring locks can not be ensured in all the applications (like data base transaction), thus this solution can be applied only in few situations
 
-<p align="middle">
+<p align="center">
     <img src="./Images/DeadLockAvoidance2.jpeg" alt="PreemptRace" height="500px">
 </p>
 
@@ -202,7 +202,7 @@ void threadSafeOperation(int x)
     - basically we are avoiding a situation where  T2 waits on a resource before `R[i]` held by T1 and acquires a resource out of order after `R[i]`, which is needed by T1 (causing both threads to wait, as they need both resources to complete operation and release locks)
     - there by never causing circular dependency
 
-<p align="middle">
+<p align="center">
     <img src="./Images/TotalOrderAccess.jpeg" alt="PreemptRace" height="500px">
 </p>
 
