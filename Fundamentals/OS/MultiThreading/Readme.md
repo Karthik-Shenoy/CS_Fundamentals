@@ -69,17 +69,17 @@ for(int i = 0; i < threadCount; i++)
     - A thread `reads the shared data onto the registers` and is preempted mid way when the data is being updated in the registers, thread readd Shared Data = X onto the register and updates it to Y in the register, the thread gets preempted before storing the data back to the memory.
     - Followed by another thread reading the shared data (X) onto the register and gets preempted midway when it updates the data in the registers(Z). the thread gets preempted before writing the data onto the memory.
     - Now which ever thread flushes its data in the register to the memory last will be responsible for the final state of the shared data
-<div style="text-align: center;">
+<p align="middle">
     <img src="./Images/PreemptionAndRaceCondition.jpg" alt="PreemptRace" height="500px">
-</div>
+</p>
 
 - To prevent Race conditions from happening we can acquire Mutually exclusive locks (mutex locks) on the shared resource when updating the shared resource.
     - Mutex locks prevent other threads from accessing the shared resource when a given thread is modifying the shared resource (`The lock data is shared across the threads`), The other threads wait until the lock is released
     - When a thread acquires a lock on shared resource and gets preempted, the other threads wont be able to access the resource as the resource is locked, they just wait indefinitely until the lock is released
 
-<div style="text-align: center;">
+<p align="middle">
     <img src="./Images//MutexLock.jpg" alt="PreemptRace" height="500px">
-</div>
+</p>
 
 > Look into the following files to know more about mutex locks `./Code/BasicMutex`
 
@@ -92,9 +92,9 @@ for(int i = 0; i < threadCount; i++)
 - The polling wastes a lost of computation, by continuously checking if the lock has been released or not
 - The threads get interleaved, one thread performs operation on shared resource and the other threads keeps polling indefinitely (which wastes a lot of compute)
 
-<div style="text-align: center;">
+<p align="middle">
     <img src="./Images/MutexOverhead.jpeg" alt="PreemptRace" height="500px">
-</div>
+</p>
 
 - `Condition Variable : ` can be used to block a thread/multiple thread at the same time (we basically make a set of threads sleep)
     - The condition variable blocks the threads (makes the thread sleep), until one thread (that is operating in the critical section) modifies the shared variable (condition) and notifies the condition variable
@@ -102,9 +102,9 @@ for(int i = 0; i < threadCount; i++)
     - to use condition variable we need 3 things `Lock`, `Condition Variable` and a `boolean` to check if the thread has completed execution
 - A thread in sleep state never gets CPU time, thus time is not wasted in unnecessary polling
 
-<div style="text-align: center;">
+<p align="middle">
     <img src="./Images/ConditionVariable.jpeg" alt="PreemptRace" height="500px">
-</div>
+</p>
 
 ```C++
 // global variables shared variables
@@ -173,9 +173,9 @@ void threadSafeOperation(int x)
     - kill one of the threads and break circular dependency (priority => old/new/least busy/most busy)
     - restart process (inconsistencies)
 
-<div style="text-align: center;">
+<p align="middle">
     <img src="./Images/DeadLockAvoidance1.jpeg" alt="PreemptRace" height="500px">
-</div>
+</p>
 
 - The most graceful fix to such situation is to prevent the process from entering into a deadlock (prevent circular dependency), circular dependency can be avoided as follows
     - maintain a resource allocation graph, and every time a thread wants to acquire some resource check if it forms a cycle in the graph (check for circular dependency), `block such thread from acquiring lock until there is no circular dependency` (or we can kill the thread that holds the least/most number of locks based on problem context)
@@ -188,9 +188,9 @@ void threadSafeOperation(int x)
 - Core Idea: make all the threads acquire locks on the resources in some `total order` (ra, rb, rc ...) where a > b > c, without acquiring locks on resource `r[i]` the thread can not acquire lock on the resource `r[i+1]`
 - but total order in acquiring locks can not be ensured in all the applications (like data base transaction), thus this solution can be applied only in few situations
 
-<div style="text-align: center;">
+<p align="middle">
     <img src="./Images/DeadLockAvoidance2.jpeg" alt="PreemptRace" height="500px">
-</div>
+</p>
 
 ### Why ordered access always result in deadlock free code
 - lets assume the most simple case where 2 threads T1 and T2 want the resources R1 and R2
@@ -202,9 +202,9 @@ void threadSafeOperation(int x)
     - basically we are avoiding a situation where  T2 waits on a resource before `R[i]` held by T1 and acquires a resource out of order after `R[i]`, which is needed by T1 (causing both threads to wait, as they need both resources to complete operation and release locks)
     - there by never causing circular dependency
 
-<div style="text-align: center;">
+<p align="middle">
     <img src="./Images/TotalOrderAccess.jpeg" alt="PreemptRace" height="500px">
-</div>
+</p>
 
 > look at `./code/CircularWaitCode/` for the total order deadlock avoidance technique
 
