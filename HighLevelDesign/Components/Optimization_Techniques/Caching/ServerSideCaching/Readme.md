@@ -24,7 +24,7 @@
 ## Caching in Relational Database
 
 ### WAL (Write ahead Log)
-- data is written to write ahead log before being indexed in a B-Tree (usually used to recover from failure / synchronization between various DB replicas)
+- The description of the operation is written to write ahead log before being indexed in a B-Tree (usually used to recover from failure and synchronization between various DB replicas)
 
 ### Buffer Pool
 - area used to `cache query results`

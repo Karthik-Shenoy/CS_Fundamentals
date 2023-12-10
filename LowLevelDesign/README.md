@@ -26,5 +26,3 @@ Tells us how much a given class is coupled or dependent on another class
 - completely arbitrary changes may cause some unrelated code to break in the code base
 
 > The above mentioned problems (Rigifity, Fragility and Coupling) can be solved by using `interfaces` (**Abstraction, Polymorphism and Dependency Inversion**)
-## OOP principles
-We must mainly focus on how `Abstraction` and `Polymorphism` work, once our core SOLID principles are strong we can apply these principles when writing code and try to match it one of the design patterns. 

@@ -45,3 +45,7 @@ Two ways to approach a system design problem problem, think of all the data and 
 - We take a bottom up approach to low level design
   1. What are the actions that user can perform ? (Use Case Diagram)
   2. 
+
+
+### Useful Links
+- [System Design Roadmap](https://takeuforward.org/system-design/complete-system-design-roadmap-with-videos-for-sdes/)

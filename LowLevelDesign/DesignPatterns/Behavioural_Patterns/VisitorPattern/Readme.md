@@ -1,9 +1,12 @@
 # Visitor pattern
 - You can use `Visitor` along with `Iterator` to traverse a complex data structure and execute some operation `over its elements`, even if they all have `different classes`.
 - Lets you separate the algorithms from the objects (usually large complex objects) on which they operate ()
-- Example : separate the graph algorithms (Traversal/Shortest-Path/Minimum Spanning Tree) from large graph/tree object, (Large Geographic Information Graph which stores large amount of info about interconnected cities)
+- Example : separate the algorithms (Query Matching/conversion/storage) from large `graph/tree node object` (Large Geographic Information Graph where each node stores large amount of info about interconnected cities)
+    - suppose we already have an iterator that moves through such graph, but we want to print the count of all the shops in a given list of cities that has a certain pattern given by the user.
+    - in such case we need to traverse through all the cities present in that complex node object and do a pattern matching.
+    - to separate the algorithm from the node object we can create a `ListCitiesWithPatternvVisitor` visitor object
 - The Object on which the algorithms operate might be fragile/critical (strongly coupled to the app), separating the concerns would allow us to work on the algorithms separately without having concerns about breaking critical components.
-- in cases where you need to add new behaviour to existing fragile/critical classes which are already in `PRODUCTION environment`, we can use the visitor pattern to add these behaviours to the existing classes `without altering their code`
+    - in cases where you need to add new behaviour to existing fragile/critical classes which are already in `PRODUCTION environment`, we can use the visitor pattern to add these behaviours to the existing classes `without altering their code`
 - We will use, `composition` instead of `inheritance/modification`, pass the object to the `visitors member functions` which implement the algorithms on the passed object.
 - if we want to invoke the same algorithm for different objects of a data structure (example: graph might have multiple nodes -> city node, industry node, tourist sight node, etc.), the visitor will have all the methods implemented for each of the different classes.
 
