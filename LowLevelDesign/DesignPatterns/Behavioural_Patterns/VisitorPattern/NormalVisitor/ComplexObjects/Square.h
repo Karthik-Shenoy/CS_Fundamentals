@@ -2,11 +2,14 @@
 
 class Square : public IShape {
     int mX = 0, mY = 0;
+    int mW = 0, mH = 0;
 public:
     Square(int x, int y, int w, int h)
     {
         mX = x;
-        mY = y
+        mY = y;
+        mW = w;
+        mH = h;
     }
     void draw()
     {
@@ -21,10 +24,9 @@ public:
     }
     void moveTo(int x, int y)
     {
-        
         cout << "\nErasing The Square";
         cout << "\n-------------------------------------------------\n"
-        cout << "drawing line from (" << x << ", " << y << "} to (" << x + w << ", " << y + h << ")\n";
+        cout << "erasing the area (" << x << ", " << y << "} to (" << x + w << ", " << y + h << ")\n";
         cout << "\n-------------------------------------------------\n"
         this->mX = x;
         this->my = y

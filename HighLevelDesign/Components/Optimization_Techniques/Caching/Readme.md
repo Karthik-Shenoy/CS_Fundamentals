@@ -1,13 +1,28 @@
 # Caching
 - helps improving efficiency of the system by storing frequently requested data at a place which can be accessed faster (by the consumer) rather than sending a request again to the original producer
+    - `Example : `cache frequently queried data in Primary memory from a database (`databases are usually stored as blocks in disks, and are loaded onto the memory on-demand`)
 - usually a system will have several layer of caching, at each layer we have multiple strategies for caching data, which can be chosen based on the constraints of the system
+- caching improves response times, makes system fault tolerant (as the data is replicated)
 
-### Prevalence of Caching within a computer
+## Index
+- CDN
+- Client Side Caching
+- Server Side Caching
+    - Caching at at Proxies/Load-Balancers
+- Caching Strategies
+
+<p style="text-align:center">
+<img src="./ServerSideCaching/Images/CachingInTraditionalAppArchitecture.png">
+</p>
+
+---
+## Prevalence of Caching within a computer
 - usually in a computer we will 3 levels of CPU hardware cache namely L1-cache, L2-cache and L3-cache
     - L1 cache is the fastest and the smallest cache, typically integrated on to the CPU
     - L2 cache is Slower than L1 but is larger in size
     - L3 cache is the slowest out of the 3 but has the largest size, and is shared across CPU cores
 - Translation Look aside Buffer (TLB): stores the most recently used virtual to physical address translations/mappings, allows faster conversion of virtual to physical address thereby speeding up the process of accessing memory
+- For more info look for `Caching in Operating System`
 
 ### how caching is used in traditional system application architecture
 - `Client Side Caching` in the app frontend, the web-browsers can cache HTTP responses to enable faster retrieval of the data, 
@@ -15,7 +30,7 @@
 - `CDNs` used to improve the delivery speeds of static content (Images, videos, and other web assets)
 - Messages can be cached on disk for a specified period of time based on the retention policy (message brokers such as Kafka allows us to cache messages on the disk)
 
-### Distributed caches
+## Distributed caches
 Caching helps a lot in distributed systems, if some requests are frequently made by a host (client/server/DB) then the results can be cached at the host with some `expiration policy` (to avoid stale data)
 - Caching `reduces the number of network calls` happening in the distributed system
 - `Reduces the Load on the servers/DBs`, Caching enables the client to hit the caches and get the cached data instead of hitting the servers/DBs and increasing the load on them and avoiding `Recomputation`

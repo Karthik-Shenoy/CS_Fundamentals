@@ -7,7 +7,9 @@
 - The messages can be consumed asynchronously at it's own pace, and can be persisted over large amount of time
 - the cached data is not lost when the system goes down (thus based on the retention policy we can cache data for long periods of time)
 
-## Distributed caches
+### Optimizing requests to a Distributed cache
+- to maintain the Application Server to the Cache server affinity we use consistent hashing, as we cache the most frequently requested data to a given app-server in the corresponding cache server
+< AppServer + LB + CacheServer >
 
 ### Redis in-memory caching
 - stores key-value pairs in-memory, providing high read/write performance compared to traditional databases

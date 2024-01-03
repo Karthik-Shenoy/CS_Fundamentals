@@ -28,24 +28,53 @@ Two ways to approach a system design problem problem, think of all the data and 
   <p style="font-style:italic;font-size:14px;">System Design Approaches</p>
 </div>
 
-- once the high level blue proint is done we can think about what are the actual tools we can use to make this system possible, we will be using System Design Patterns (Load Balancers, caches, etc) which are provided by cloud providers like tools, 
-- its better to use already existing tools instead of building one from scratch as they are already heavyly tested.
+- once the high level blue print is done we can think about what are the actual tools we can use to make this system possible, we will be using System Design Patterns (Load Balancers, caches, etc) which are provided by cloud providers like tools, 
+- its better to use already existing tools instead of building one from scratch as they are already heavily tested.
 - **Design Pattern :** Reusable solution to commonly occurring problem
 
 ## Basic system
 - we will have some `business logic` (piece of code) that will be running at our `remote server`, we will allow users to use this piece of code.
-- the code can be exposed over some protocol (HTTP, Websockets, WebRTC, gRPC etc.) using a api(application programming interface)
+- the code can be exposed over some protocol (HTTP, Websocket, WebRTC, gRPC etc.) using a api(application programming interface)
 - to persist the `User Data`, we can use some DB (SQL/NO-SQL)
-- to setup all this we can use a cloud service to manage everything at a single place (Maintainance and Reliability is taken care by the CSP)
+- to setup all this we can use a cloud service to manage everything at a single place (Maintenance and Reliability is taken care by the CSP)
 - the System keeps changing as the requirements keep changing (user needs/scale)
 
 
 ## Low-Level Design
-- We break down the, high level design into smaller chunks representing different functionalities, and code these chunks seperately and finally link them together to form the entire system 
+- We break down the, high level design into smaller chunks representing different functionalities, and code these chunks separately and finally link them together to form the entire system 
 - We take a bottom up approach to low level design
   1. What are the actions that user can perform ? (Use Case Diagram)
   2. 
 
+# Index
+## Consistency
+- different consistency patterns, based on the system constraints (learn more from [Consistency patterns](../HighLevelDesign/Components/Fundamentals/ConsistencyPatterns/ConsistencyPatterns.md))
+- 
+
+## Asynchronism
+- [Message Queues and Task Queues](../HighLevelDesign//Components/Asynchronism/Readme.md)
+- [Back Pressure](../HighLevelDesign//Components/Asynchronism/Readme.md)
+## Perf
+- scaling (Vertical and Horizontal)
+- Load balancing
+- Proxies (Reverse/Forward)
+
+## Optimizations
+- Caching
+- Message Queues
+## Protocols
+- Lower Layer Protocols: TCP/UDP, QUIC, NAT (learn more from [Networking Fundamentals](../Fundamentals//Computer%20Networks/))
+- HTTP ()
+- HTTP Evolution
+- Web Socket
+- Web Transport
+- Web RTC
+- gRPC
+
+## API Architectural styles
+- REST
+- GraphQL
+- RPC
 
 ### Useful Links
 - [System Design Roadmap](https://takeuforward.org/system-design/complete-system-design-roadmap-with-videos-for-sdes/)
