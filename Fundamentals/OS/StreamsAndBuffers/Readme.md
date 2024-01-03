@@ -14,9 +14,9 @@
 
 ### Buffers
 - The rate at which data is produced and consumed might be vastly different, if the data production rate is very high and consumption is slow, then by the time `consumption/processing` is done at the consumer `a lot of data which was sent during processing/consumption will be lost`
-    - if the consumption rate is faster than production we `will poll for data unnecessarily` for multiple times which will waste the CPU cycles.
+    - if the consumption rate is faster than production. consumer `will poll for data unnecessarily` for multiple times which will waste the CPU cycles.
 - `Buffers :` help in solving the issues with uneven data rates, 
     - in case when we are sending a large file, we buffer the chunks at the `WRITE_BUFFER`, and wait for it to reach a certain capacity we club the chunks together to form a bigger chunk and send it, instead of multiple smaller chunks, this reduces the number of messages sent over the medium
     - in the case when we are expecting a large file to be received in chunks, rather than consuming a small chunk every time it arrives, we buffer/store the chunks in the `READ_BUFFER`, and consume it when the buffer is filled to a certain capacity, this reduces the number of reads
-    - `READ_BUFFER : ` does not requiring polling to check if there is any data, it notifies the process when the buffer is filled more than certain capacity.
-    - We can read from the buffer, when ever we want (when we read from the buffer the entire data is emptied)
+    - `READ_BUFFER :` does not requiring polling to check if there is any data, it notifies the process when the buffer is filled more than certain capacity.
+    - We can read from the buffer, when ever we want (when we read from the buffer the entire data is emptied/consumed)

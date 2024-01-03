@@ -27,7 +27,7 @@
 ## Segmenting The message
 - The message is broken down into smaller packets (called `segment`) 
 - Each Segment is assigned `sequence number` before being transmitted (both at client and server)
-- `acknowledgement numbers` are assigned to received segments
+- `acknowledgement numbers` are assigned to received ACK segments (ACK_NUM is assigned to ACK segments by the server before sending the ACK)
 - For a segment (with size X bytes, and a sequence number = SEQ_NUM) being sent over the TCP connection, the ACK must have the ACK_NUM = SEQU_NUM + X indicating that X bytes have been received
     - TCP buffers all the messages sent over the TCP in a SENT_BUFFER (A QUEUE), the segment is removed from this buffer only once we receive an ACK, (if there are a lot of ACKs getting lost the app suffers from a buffer overflow)
     - We put a timer on every segment sent, if the ACK is not returned before the timer expires, then a retransmission of the segment occurs
@@ -56,11 +56,14 @@
 - Window Sizes are dynamic they grow and shrink throughout the connection lifecycle (if the Receive Buffer has some un-processed data the window size gets reduced)
 
 ### Sliding Window Algorithm
-- 2 Sliding windows will be present at the host one for the SEND_BUFFER, and one for the RECEIVE_BUFFER, Sliding window is moved either on receiving of ACK (SEND_BUFFER) or consumption of the bytes by the APP(RECEIVE_BUFFER)
+- 2 Sliding windows will be present at the hosts one for the SEND_BUFFER, and one for the RECEIVE_BUFFER, Sliding window is moved either on receiving of ACK Server_APP(SEND_BUFFER) or consumption of the bytes by the Client_APP(RECEIVE_BUFFER)
 - We have to make sure that the consumption rate is faster than the receive_rate
-- In Selective_Repeat_Algorithm, the Receiver can accept the packets in the window in any order and buffer them, but when sending it to the upper layers it has to do it in order
+- In Selective_Repeat_Algorithm, the Receiver can accept the packets `in the window` in any order and buffer them, but when sending it to the upper layers it has to do it in order
     - thus if a packet in the window is lost all the other packets that come after it have to wait in the buffer, as we can not send the packets to upper layer out of order, and we can not move the window further than the lost packet (HOL blocking problem)
     - we can receive the ACKs of the packets in the window in any order and buffer them, but we can not move the sliding window further than the packet whose ACK got lost.
+<div style="text-align: center;">
+    <img src="./Images/TCPHOL.jpg" alt="TCPHOL" width="1300px">
+</div>
 
 
 ## 3 way hand shake for establishing a TCP connection

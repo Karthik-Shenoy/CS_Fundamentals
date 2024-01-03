@@ -7,7 +7,9 @@
 - The messages can be consumed asynchronously at it's own pace, and can be persisted over large amount of time
 - the cached data is not lost when the system goes down (thus based on the retention policy we can cache data for long periods of time)
 
-## Distributed caches
+### Optimizing requests to a Distributed cache
+- to maintain the Application Server to the Cache server affinity we use consistent hashing, as we cache the most frequently requested data to a given app-server in the corresponding cache server
+< AppServer + LB + CacheServer >
 
 ### Redis in-memory caching
 - stores key-value pairs in-memory, providing high read/write performance compared to traditional databases
@@ -24,7 +26,7 @@
 ## Caching in Relational Database
 
 ### WAL (Write ahead Log)
-- data is written to write ahead log before being indexed in a B-Tree (usually used to recover from failure / synchronization between various DB replicas)
+- The description of the operation is written to write ahead log before being indexed in a B-Tree (usually used to recover from failure and synchronization between various DB replicas)
 
 ### Buffer Pool
 - area used to `cache query results`
