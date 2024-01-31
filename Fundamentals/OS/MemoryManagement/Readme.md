@@ -2,14 +2,13 @@
 - functionality which manages `primary memory` (movement of processes back and forth between primary memory and disk), it also manages other memory resources like (Registers, Primary memory, Disk)
 
 <div style="text-align: center;">
-    <img src="./Images/MemoryManagementArchitecture.jpg" width="500px">
+    <img src="./Images/MemoryManagementArchitecture.jpg" width=1280px">
 </div>
 
-- For a program to execute, we load the program on to the primary memory from disk, and the instructions/data is loaded one by one into the CPU (caches store frequently accessed data/instructions to speed things ups)
-- A program becomes a process when loaded on to the main memory (`Multiprogramming` : The operating system greedily tries to load as many processes as possible (`degree of multiprogramming`) onto the main memory from the disk)
-
-- keeps track of each and every memory location (both free and allocated), determines which process will be allocated how much memory and for how long
-- it updates the status of the memory, whenever it gets freed(event driven)
+- For a program to execute, we load the program from the disk on to the primary memory, and the instructions/data is loaded one by one into the CPU (caches store frequently accessed data/instructions to speed things ups) 
+- A program becomes a process when loaded on to the main memory (`Multiprogramming` : The operating system greedily tries to load as many processes as possible onto the main memory from the disk)
+    - `degree of multiprogramming` : max number of processes a that a single processor can accommodate efficiently (in a concurrent manner)
+- `Memory Management service`: in the OS keeps track of each and every memory location (both free and allocated), determines which process will be allocated how much memory and for how long, it updates the status of the memory, whenever it gets freed(event driven)
 
 ### What is the need of swapping the processes IN/OUT of the memory
 - A process can either use CPU or wait for I/O, but when waiting for I/O the `CPU becomes idle`, we need to `swap a different process into the main memory` or `give time to some other process` in the memory in such case
@@ -17,8 +16,8 @@
 
 ### Memory Addresses
 - `The process (virtual) address space : ` is the set of `logical addresses` that a process references in its code. 
-    - For example, when 32-bit addressing is in use, addresses can range from `0` to `0x7fffffff`; that is, 2^31 possible numbers, for a total theoretical size of 2 gigabytes.
-    - each memory address will store a byte of information (8 bits), if the memory is `word-aligned` then we access the memory in terms of words (2 bytes/2 memory location) 
+    - For example, when 32-bit addressing is in use, addresses can range from `0` to `0x7fffffff`; that is, (`2^31 - 1`) possible numbers, for a total theoretical size of 2 gigabytes. (we partition the memory address space with 32bits into 2 equal partitions (of size 2^31 each), the first bit is used to denote the partition number)
+    - each memory address will store a byte of information (8 bits), if the memory is `word-aligned` then we access the memory in terms of words (2 bytes/2 memory location/16 bit word size) 
     - The `virtual address space` for 32-bit Windows is 4 gigabytes (GB) in size and divided into two partitions: one for use by the process and the other reserved for use by the system. (the MSB indicates the partition)
     - The partition size is usually 2GBs each, but can be modified
 

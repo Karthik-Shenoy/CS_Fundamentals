@@ -23,7 +23,7 @@ int main()
     auto endTime = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(endTime-startTime);
     cout << duration.count() << "\n"; 
-    cout << "\n Checking Validity ..."
+    cout << "\n Checking Validity ...";
     if(!drs->checkFileCollectionValidity())
         cout << "Operation Produced Invalid Results\n";
 }

@@ -1,7 +1,15 @@
 # Structural Desin Patterns
 - Assemble classes and objects into `larger structures`
-- most of the structural patterns, follow the idea of wrapping the object with another object to add `additional behavior`
-    - Facade/Decorator Wrap the object and add `additional behavior`, but the intent of wrapping and adding additional behavior is different
+- most of the structural patterns, follow the idea of wrapping the object with another object to add `additional behavior` (Wrapping here implies composition)
+    - Wrap the object and add `additional behavior`, but the intent of wrapping and adding additional behavior is different
+    - `Adapter: ` Wrap the class with incompatible interface, with a `concrete class` having compatible interface, the wrapper/concrete-class is responsible for data transformation from format supported by the compatible interface to the format supported by the incompatible interface (In `Adapter pattern` the Wrapper and the object getting wrapped implement different interfaces)
+    - `Decorator: ` Wrap a class to extend its functionality, each wrapper adds a new functionality, but the method signatures remain the same (In `Decorator pattern` the Wrapper and the object getting wrapped implement same interfaces, to ensure the method signatures remain same)
+    - `Bridge : ` Wrap one interface inside other, as each object that implements the first interface will be composed of a member implementing the second interface, this member can change dynamically (basically it can change into any object that implements the second interface) thus any object implementing the first interface can utilize any object implementing the second interface. < Image >
+    - `Flyweight:` objects may be composed of immutable states (that gets `repeated` across objects) and mutable states (that are unique to the object), `we move the instantiation and caching of such repeated states to a separate class` (there by reusing already created object, reducing redundant objects in ram thereby preventing over utilization), `reuse states instead of repetition`
+        - Basically the repeated state will be moved to a separate object, and the unique state will be kept in another object, the unique-state-object will have a reference to the repeated-state-object (composition/wrapping)
+    - `Facade : `
+    - `Proxy : `
+
 
 - while keeping the structures flexible and efficient
 - how are objects related to each other, Relationships between objects (Wrapper/Wrapee, Composition etc)
@@ -31,9 +39,11 @@
 ---
 
 ## Adapter
-- Allows objects with incompatible interfaces to collaborate
-- implement a concrete class which implements the interface to be adapted, the concrete class  is composed of the `incompatible/adaptee class object` which implements `different interface`
-- the adapter class wraps the service/class which needs to be used(adaptee)
+- Allows objects with incompatible interfaces to collaborate (in most cases the classes are coupled to an interface, and can not use code from other classes that don't implement that interface)
+- implement a concrete class which implements the compatible-interface, the concrete class is composed of the `incompatible/adaptee class object` which implements `different interface`
+- the adapter class wraps the service/class which needs to be used (adaptee), and also performs data transformation on the incoming data 
+    - the incoming data will be in a format which is defined by the compatible-interface
+    - the adapter class converts the incoming data format to the format defined by the incompatible interface
 - the adapter class belongs to the interface to be adapted
 
 --- 
