@@ -54,6 +54,7 @@ public:
     {
         while (poolSize)
         {
+            // spawn threads that will perform the tasks
             this->threadsList.push_back(thread(&threadLoop, this));
             poolSize--;
         }

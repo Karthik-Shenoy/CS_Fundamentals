@@ -1,15 +1,16 @@
 # Content Delivery Networks
 - Used to speed up the delivery of static content (the static here does not imply `strictly static`, the `loosely static` content at the CDN changes Rarely)
 - A Content Delivery Network (CDN) is a geographically distributed group of servers that caches content close to end users
-- `Static Content : ` Javascript, Images, HTML, CSS, Videos, Strings (Translatable)
+- `Static Content`: Javascript, Images, HTML, CSS, Videos, Strings (Translatable)
 - CDN caches the content and brings the content (`geo-spatially`) closer  to the User, there by decreasing the perceived load time at the client side
 - CDN servers are deployed at multiple locations around the world, they are called as `POP (point of presence) or edge` servers, as CDNs are deployed across the world, Clients can quickly fetch cached data from the nearest CDN
 
 ## Routing requests for static content to the nearest CDN
-- we can either use DNS or AnyCast to route the clients to their nearest `CDN-POP`
-- `DNS based routing : ` when using DNS to route clients to the nearest POP, `each CDN-POP will have its own IP` and when user requests for the IP of the POP which serves static content  the `DNS sever` responds with the IP of the closest POP
+- we can either use DNS and AnyCast to route the clients to their nearest `CDN-POP`
+- `DNS based routing`: when using DNS to route clients to the nearest POP, `each CDN-POP will have its own IP` and when user requests for the IP of the POP which serves static content  the `DNS sever` responds with the IP of the closest POP
+    - we configure the DNS to respond differently, based on the client sub-net/geo-location
 - `Anycast based routing : ` all the POPs across the world have the same IP
-- CDN improves response Speed, and reduces the load on the origin server, improves security and UP time as the CDN POPs are distributed
+- CDN improves response Speed, and reduces the load on the origin server (web-app server), improves security and UP time as the CDN POPs are distributed
 - CDN POPs subscribe to the static content at the origin server and when the subscribed content changes the POPs are notified accordingly
 
 ## How does an Edge/POP server works in a CDN
@@ -22,12 +23,16 @@
     - convert videos into multiple formats (720, 1080, 2k 4k) and server based on client bandwidth
     - show compliant web page content according to the users locale
 - All the TLS connections terminate at the Edge/POP servers
-    - TLS connections are expensive, as they need 3 way handshake, upon the usual TCP handshake
+    - TLS connections are expensive, as they need 3 way handshake, in addition the usual TCP handshake
     - thus users can avoid multiple Round Trips to the origin servers and fetch contents directly without expensive TLS encrypted TCP connection
-- some services which don't care about `high consistency` also cache the dynamic content at the CDN.
+- some services which don't care about `high consistency` also `cache dynamic content at the CDN`.
 - CDNs have a huge network capacity at the edge, and can protect the origin from a DDOS attack (as the network will have a larger capacity than that of the attackers)
     - DDOS attack prevention is much prevalent, if the CDNs use anycast routing, as anycast diffuses the DDOS traffic across multiple POP servers
 - `Improves Availability :` As CDNs are distributed and have copy of the content, they can handle more hardware failures than just the origin server
+
+## Pull vs Push CDNs, what to choose
+
+
 
 ## CDN service providers
 - Azure

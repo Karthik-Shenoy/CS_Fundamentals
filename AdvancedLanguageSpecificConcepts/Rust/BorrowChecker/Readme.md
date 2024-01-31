@@ -16,14 +16,12 @@
   - `referencing heap allocated object : ` we can use the `&ptr` or `ref` key word to borrow reference to the object
 
 ### Borrowing
-- gives `temporary access` to the heap allocated object `without taking the ownership` of it
+- gives `temporary access` to the heap allocated object `without taking the ownership` of it, we use `& operator` to borrow a reference to a heap allocated object
 - we don't move and delete the previous pointer to the object, instead we create a new `temporary` reference to the object
-- ownership can be borrowed immutably or mutably
-  - at a given time we can have only one `mutable reference`, or we can have any number of immutable references but we cant have both at the same time(write acquires a lock, reads prevents writes but we can have any number of reads happening in parallel) `&ptr: immutable reference , &mut mutable reference`
+- references can be borrowed immutably or mutably
+  - at a given time we can have only one `mutable reference`, or we can have any number of immutable references but we cant have both at the same time(write acquires a lock, reads prevents writes but we can have any number of reads happening in parallel) `&ptr: immutable reference , &mut ptr: mutable reference`
   - we can have multiple mutable and immutable references given that `only the most recent` out of all the references is being used after the acquisition of these mutable references
-- references must be valid and not dangling
+- references must be valid and not dangling (referenced object must be in scope)
 
 ## Allocating data on the heap
-
-- `Box::new()` allows us to allocate objects on to the heap, Box returns a pointer to the heap allocated object, we use the dereferencing operator to get the pointer referenced object `*ptr`
--
+- `Box::new()` allows us to allocate objects on to the heap, Box returns a pointer to the heap allocated object, we use the dereferencing operator to get the referenced object `*ptr`

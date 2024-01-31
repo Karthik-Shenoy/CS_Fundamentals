@@ -5,3 +5,4 @@ https://www.incredibuild.com/blog/cpp-advanced-topics-for-experienced-cpp-devs
 3. Capture
 4. Async
 5. Future
+6. Unions/Generics
