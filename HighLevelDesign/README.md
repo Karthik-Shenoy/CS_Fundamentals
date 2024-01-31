@@ -2,10 +2,10 @@
 - A large scale distributed system is a `highly complex and interconnected system` that is designed to handle data and compute-intensive processes, and can scale horizontally by adding more nodes to accommodate increasing demand or workload.
 - Primary goal of such a system is to provide `high performance` (low latency), `fault tolerance` (manage failures), `consistency` (as data is distributed across nodes) and `reliability` (reduce down time), `Extensibility` (how easy is it to modify the system, reduce coupling), **Testing** (very important in real world scenario).
 
-<div style="text-align:center">
-  <img src="./DesignFlow.png" alt="Example image" style="width:300px;height:500px;">
+<p align="center">
+  <img src="./Images/DesignFlow.png" alt="Example image" style="width:300px;height:500px;">
   <p style="font-style:italic;font-size:14px;">Flow for high-level design process</p>
-</div>
+</p>
 
 1. Define product requirements based on user feedback, and document them in a product requirement document.
 2. Come up with abstract features/components based on the design document.
@@ -23,10 +23,10 @@ Two ways to approach a system design problem problem, think of all the data and 
 1. From customers to servers, and finally to database (bottom up) ***UserRequirements -> Define Apis -> Modelling the data which will be served by defined Apis***
 2. From Database to server to customers (top down)
 ***modelling Data required to satisfy customer needs -> designing apis for the data -> Meeting user requirements***
-<div style="text-align:center">
-  <img src="./SystemDesignApproach.png" alt="Example image" style="width:200px;height:300px;">
+<p align="center">
+  <img src="./Images/SystemDesignApproach.png" alt="Example image" style="width:300px;height:400px;">
   <p style="font-style:italic;font-size:14px;">System Design Approaches</p>
-</div>
+</p>
 
 - once the high level blue print is done we can think about what are the actual tools we can use to make this system possible, we will be using System Design Patterns (Load Balancers, caches, etc) which are provided by cloud providers like tools, 
 - its better to use already existing tools instead of building one from scratch as they are already heavily tested.
@@ -45,6 +45,7 @@ Two ways to approach a system design problem problem, think of all the data and 
 - We take a bottom up approach to low level design
   1. What are the actions that user can perform ? (Use Case Diagram)
   2. 
+
 
 # Index
 ## Consistency
@@ -78,3 +79,4 @@ Two ways to approach a system design problem problem, think of all the data and 
 
 ### Useful Links
 - [System Design Roadmap](https://takeuforward.org/system-design/complete-system-design-roadmap-with-videos-for-sdes/)
+
