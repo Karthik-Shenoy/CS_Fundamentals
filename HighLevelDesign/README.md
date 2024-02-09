@@ -18,7 +18,7 @@
 - The Api's(Back-end) we build must be independent from the client(Front-end)
 The requirements are converted into ***Features***, based on the features we come up with the Data Definition which are then mapped to objects which will be stored in the database, after this we define endpoints from where this data can be accessed/manipulated.Write decoupled, scalable and extensible code
 
-## Ways to approach system design problem
+### Ways to approach system design problem
 Two ways to approach a system design problem problem, think of all the data and services required in a particular part of the system and visualize the flow and modifications to the data as it passes to to the next, 
 1. From customers to servers, and finally to database (bottom up) ***UserRequirements -> Define Apis -> Modelling the data which will be served by defined Apis***
 2. From Database to server to customers (top down)
@@ -28,26 +28,24 @@ Two ways to approach a system design problem problem, think of all the data and 
   <p style="font-style:italic;font-size:14px;">System Design Approaches</p>
 </p>
 
-- once the high level blue print is done we can think about what are the actual tools we can use to make this system possible, we will be using System Design Patterns (Load Balancers, caches, etc) which are provided by cloud providers like tools, 
+- once the high level blue print is done we can think about what are the actual tools we can use to make this system possible, we will be using System Design Patterns (Load Balancers, caches, etc) which are provided by cloud providers, 
 - its better to use already existing tools instead of building one from scratch as they are already heavily tested.
 - **Design Pattern :** Reusable solution to commonly occurring problem
 
-## Basic system
+### Basic system
 - we will have some `business logic` (piece of code) that will be running at our `remote server`, we will allow users to use this piece of code.
 - the code can be exposed over some protocol (HTTP, Websocket, WebRTC, gRPC etc.) using a api(application programming interface)
 - to persist the `User Data`, we can use some DB (SQL/NO-SQL)
 - to setup all this we can use a cloud service to manage everything at a single place (Maintenance and Reliability is taken care by the CSP)
 - the System keeps changing as the requirements keep changing (user needs/scale)
 
-
-## Low-Level Design
+### Low-Level Design
 - We break down the, high level design into smaller chunks representing different functionalities, and code these chunks separately and finally link them together to form the entire system 
 - We take a bottom up approach to low level design
-  1. What are the actions that user can perform ? (Use Case Diagram)
-  2. 
 
 
 # Index
+- approach to create HLD and LLD of a data intensive application: [Data Intensive Application design](../)
 ## Consistency
 - different consistency patterns, based on the system constraints (learn more from [Consistency patterns](../HighLevelDesign/Components/Fundamentals/ConsistencyPatterns/ConsistencyPatterns.md))
 - 

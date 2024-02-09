@@ -97,9 +97,11 @@ for(int i = 0; i < threadCount; i++)
 </p>
 
 - `Condition Variable : ` can be used to block a thread/multiple thread at the same time (we basically make a set of threads sleep)
-    - The condition variable blocks the threads (makes the thread sleep), until one thread (that is operating in the critical section) modifies the shared variable (condition) and notifies the condition variable
+    - The condition variable blocks the threads and puts the thread in idle state (makes the thread sleep), until one thread (that is operating in the critical section) modifies the shared variable (condition) and notifies the condition variable
     - once the condition variable is notified, one of the threads is notified and is woken up and it starts operating on the critical section (acquires lock)
     - to use condition variable we need 3 things `Lock`, `Condition Variable` and a `boolean` to check if the thread has completed execution
+- when a condition variable is notified it `re-acquires the lock` and continuous the execution from where it left off
+- we can also pass a closure/lambda called `predicate` which stops the thread execution if it returns true `while(predicate) { wait(lock); }`
 - A thread in sleep state never gets CPU time, thus time is not wasted in unnecessary polling (A thread goes to sleep only when it tries and accesses the critical section)
 
 <p align="center">
@@ -120,7 +122,7 @@ std::thread reportingThread = std::thread([&]{
     {
         // we will come here only during thread initialization
         // the thread is put into sleep state after initialization, until the worker thread updates the result
-        gConditionVariable.wait(); 
+        gConditionVariable.wait(uniqueLock); 
     }
     // automatic lock release
 });
@@ -210,5 +212,7 @@ void threadSafeOperation(int x)
 
 ---
 
-## Creating a single threaded event loop based system using async
+## Green threads vs Virtual Threads (Thread pool to the rescue)
+- `Overhead for creating threads`
+
 

@@ -1,6 +1,7 @@
 # Socket programming
-- Adding delimiters (as multiple messages can be read at once, `stream oriented` protocol)
+- Add delimiters (as multiple messages can be read at once, `stream oriented` protocol)
 - why does read system call take time and allow the buffer to be filled up (is it watermark)
+    - blocking read with `timeout`, non blocking read.
 - IO multiplexing
     - poll, select and epoll on a socket fd
 - Non blocking IO sockets
@@ -12,7 +13,7 @@
 ## What is a socket
 - Socket can be thought of as one endpoint of a bi-directional communication channel
     - Socket follows same paradigm like other IO devices, remote streams data (), and the client buffers the data until the data is read, on reading the entire buffer is emptied
-    - Usually the read call is blocking (to make sure our process stays responsive and is able to perform other tasks we should use the `Async I/O` paradigm) 
+    - Usually the read call is blocking (to overcome this blocking nature and make sure our process stays responsive and is able to perform other tasks we should use the `Async I/O` paradigm)
 - `How is Socket uniquely Identified`: A socket can be uniquely identified using the following pair (local_ip:local:port, remote_ip:remote_port)
 - a single local port can be connected to multiple remote applications using different `remote_ip:remote_port` pairs
 - consider the case where 2 applications are communicating with each other, client and remote apps have the following `IP:Port` pairs `192.168.1.1:5000` and `192.168.1.2:5001`
@@ -47,7 +48,7 @@
     - every time we accept a connection request we will create a new socket that will handle the communication with the clients
 - `Client Application`: will have one socket which will connect to the server and then communicate with it
 - `Accept` and `Recv` are blocking calls
-- `Recv` returns -1 if there's some error with the connection, and returns 0 on graceful shut down of the connection at remote
+- `Recv` returns -1 if there's some error with the connection, and returns number of bytes read on graceful communications
 
 
 ## Compiling on windows
