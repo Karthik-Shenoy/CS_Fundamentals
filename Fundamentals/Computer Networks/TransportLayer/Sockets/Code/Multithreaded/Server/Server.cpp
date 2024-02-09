@@ -110,6 +110,7 @@ int main()
         .sin_family = AF_INET,
         .sin_port = htons(10000),
     };
+    
     // chained designators {.a.b=value} inside structs is not allowed in c++
     server_address.sin_addr.s_addr = INADDR_ANY;
 
