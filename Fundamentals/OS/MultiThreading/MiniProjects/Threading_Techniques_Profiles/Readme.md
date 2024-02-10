@@ -1,4 +1,4 @@
-## Working efficiently with threads
+# Working efficiently with threads
 - Working with threads does not have a lot of overhead compared to processes, because context switching between threads is very easy (we just need to use different stack, registers, and program counter) (no TLB flush is needed as we will be using the same address space)
     - when switching between process, we need to swap a lot of stuff (the entire TLB needs to be flushed as we will be using a separate page table), load page table, swap other process data from the swap file if the process is outside the memory
 
